@@ -14,14 +14,14 @@ export default function Header() {
   return ( 
     <> 
     <div className="header">
-      <tr>
+      <tr className='d-flex flex-row justify-content-between'>
           <td>
             <a onClick={changeToggle} className="toggle-btn a-deco">☰</a>
             <a className='brand-container a-deco' href="/">PLAYGONAL</a>
           </td>
-          <td>
-            <a className='menu-item' href="/about">About</a>
-            <input className='input' defaultValue={"Search..."}/>
+          <td className='header-item justify-content-between'>
+            <a className='header-link a-deco' href="/about">About</a>
+            <input className='input' />
           </td>
       </tr>
     </div>

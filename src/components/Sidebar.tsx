@@ -1,6 +1,12 @@
 import React from 'react'
 import Image from 'next/image'
-const Sidebar:React.FC<{show:boolean,change:any}>=({show,change})=>{
+
+type SidebarProps = {
+  show: boolean;
+  change: () => void;
+};
+
+const Sidebar:React.FC<SidebarProps>=({show,change})=>{
   return (
     <div>
       {show && <div className='slider-backround' onClick={change}></div>}
