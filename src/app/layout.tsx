@@ -23,7 +23,9 @@ export default function RootLayout({
       </head>
       <body className={`${titillium.className}`}>
         <Header/>
-        {children}
+        {/* <Provider store={store}> */}
+          {children}
+        {/* </Provider> */}
         <Footer/>
       </body>
     </html>

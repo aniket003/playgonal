@@ -5,12 +5,12 @@ import Sidebar from '../Sidebar'
 
 export default function Header() {
   const [active,setActive]=useState<boolean>(false)
-
   const changeToggle=()=>{
     setActive((prev)=>{
       return !prev
     })
   }
+ 
   return ( 
     <> 
     <div className="header">
@@ -19,9 +19,8 @@ export default function Header() {
             <a onClick={changeToggle} className="toggle-btn a-deco">☰</a>
             <a className='brand-container a-deco' href="/">PLAYGONAL</a>
           </td>
-          <td className='header-item justify-content-between'>
-            <a className='header-link a-deco' href="/about">About</a>
-            <input className='input' />
+          <td className='header-item'>
+            <input className='input' type='text' placeholder='Search...' />
           </td>
       </tr>
     </div>

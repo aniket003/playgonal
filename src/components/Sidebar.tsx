@@ -1,5 +1,7 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/router';
 
 type SidebarProps = {
   show: boolean;
@@ -7,6 +9,11 @@ type SidebarProps = {
 };
 
 const Sidebar:React.FC<SidebarProps>=({show,change})=>{
+  const router = useRouter()
+
+  const navigate = (url:string) => {
+    router.push('url');
+  };
   return (
     <div>
       {show && <div className='slider-backround' onClick={change}></div>}
@@ -16,7 +23,7 @@ const Sidebar:React.FC<SidebarProps>=({show,change})=>{
           <Image src="/images/user.png" alt="My Image" width={30} height={30} />
           <p className='mb-0 menu-item'>Aniket</p>
         </li>
-        <li className='menu-item '>Account</li>
+        <li className='menu-item' onClick={()=>navigate('/about')}>About</li>
         <li className='menu-item '>Sign out</li>
        </ol>
        <ol className='list m-0 p-0 mt-2'>

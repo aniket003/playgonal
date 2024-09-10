@@ -38,14 +38,14 @@ body {
   background-color: black;
   padding: 10px;
   justify-content: space-between;
+  
 }
 .brand-container {
   border-radius: 2px;
   padding: 2px;
   font-weight: 700;
   color: var(--logocolor) !important;
-  letter-spacing: 1px;
-  
+  font-size: 20px;
 }
 .brand-footer {
   font-size: 24px;
@@ -91,7 +91,7 @@ body {
   text-decoration: none;
   font-size: 16px;
   color: #a5a2a2;
-  transition: all 2s ease;
+  transition: all 0.5s ease;
   overflow: hidden;
   letter-spacing: 1px;
   padding: 1px 0px 1px 17px;
@@ -193,20 +193,14 @@ body {
   height: auto;
 }
 .input{
-  height: 24px;
   border-radius: 5px;
   font-size: 14px !important;
-  padding: 2px;
+  padding: 4px .5em;
   background-color: #171717;
   color: #FFFFFF;
-  box-shadow: none;
-  border: none;
   border: 0.5px solid white;
 }
 .header-item {
-  align-items: center;
-  display: flex;
-  font-weight: 600;
   margin: auto;
   margin-right: 10px;
 }
@@ -218,4 +212,7 @@ body {
   cursor: pointer;
   border-radius: 5px;
   transition: background-color 0.3s ease;
+}
+.error-page{
+  height: calc(100vh - 250px);
 }
