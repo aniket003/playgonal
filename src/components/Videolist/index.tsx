@@ -1,6 +1,15 @@
 import React from 'react'
 
-const VideoList:React.FC<any> = ({data,title}) => {
+interface Movie {
+    "poster-image": string;
+  }
+  
+interface VideoListProps {
+    data: Movie[];
+    title: string;
+  }
+
+const VideoList:React.FC<VideoListProps> = ({data,title}) => {
   return (
     <div className='container d-flex flex-column'>
         <div className='heading m-0 mt-2 align-center d-flex flex-row justify-content-between'>
@@ -8,7 +17,7 @@ const VideoList:React.FC<any> = ({data,title}) => {
             <p className=''><i className="fas fa-angle-right"></i></p>
         </div>
         <div className='d-flex flex-row'>
-            {data.map((movie,i)=>(
+            {data.map((movie:Movie,i:number)=>(
                 <div className='col-4' key={i}>
                      <div className="image-container">
                         <img className="responsive-image" src={process.env.REACT_APP_ENDPOINT_IMAGE+movie["poster-image"]} />
