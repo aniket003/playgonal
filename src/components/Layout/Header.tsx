@@ -14,14 +14,18 @@ export default function Header() {
   return ( 
     <> 
     <nav className="header">
-      <tr className="container-fluid">
+      <tr className="">
           <td>
             <a onClick={changeToggle} className="toggle-btn a-deco">☰</a>
-            <a className='brand-container a-deco'>PLAYGONAL</a>
+            <a className='brand-container a-deco' href="/">PLAYGONAL</a>
+          </td>
+          <td>
+            <a className='menu-item' href="/about">About</a>
+            <input className='input' defaultValue={"Search..."}/>
           </td>
       </tr>
     </nav>
-    <Sidebar show={active}/>
+    <Sidebar show={active} change={()=>changeToggle()}/>
     </>
   )
 }

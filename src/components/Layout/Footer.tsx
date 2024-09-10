@@ -17,7 +17,6 @@ export default function Footer() {
         ))}
       </ol>
       <small className='rights'>All rights reserved @playgonal 2024</small>
-
     </div>
   )
 }

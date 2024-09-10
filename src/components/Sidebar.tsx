@@ -1,8 +1,9 @@
 import React from 'react'
 import Image from 'next/image'
-const Sidebar:React.FC<{show:boolean}>=({show})=>{
+const Sidebar:React.FC<{show:boolean,change:any}>=({show,change})=>{
   return (
     <div>
+      {show && <div className='slider-backround' onClick={change}></div>}
       <div className={`sidebar col-4 ${show&&'open'}`}>
        <ol className=' list m-0 p-0'>
         <li className='menu-item d-flex flex-row'>
@@ -30,9 +31,6 @@ const Sidebar:React.FC<{show:boolean}>=({show})=>{
         <li className='menu-item '>Comedies</li>
 
        </ol>
-      </div>
-      <div className='col-8'>
-      
       </div>
 
   </div>

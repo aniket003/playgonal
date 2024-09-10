@@ -1,7 +1,14 @@
+import PDFViewer from '../../components/PDFViewer'
 import React from 'react'
 
-export default function page() {
+const page:React.FC = async () =>{
+  const pdfUrl = "/pdf/Aniket_fullstack_4yrs.pdf"
   return (
-    <div>page</div>
+    <div>
+    <h1>My resume</h1>
+    <p></p>
+    <PDFViewer/>
+  </div>
   )
 }
+export default page

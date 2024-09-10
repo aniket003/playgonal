@@ -13,12 +13,12 @@ const Home:React.FC = async () => {
   const data = json.page["content-items"].content
   console.log(data)
   return (
-    <>
-    <VideoPlayer title="The Guardians Of Galaxy" src="/video/video.mov"/>
-    <VideoList data={data.slice(0,3)} title="Comedy Movies" />
-    <VideoList data={data.slice(3,6)} title="Romantic Movies" />
-    <VideoList data={data.slice(6,9)} title="Action Movies" />
-    </>
+    <div className="main-container">
+      <VideoPlayer title="The Guardians Of Galaxy" src="/video/video.mov"/>
+      <VideoList data={data.slice(0,3)} title="Comedy Movies" />
+      <VideoList data={data.slice(3,6)} title="Romantic Movies" />
+      <VideoList data={data.slice(6,9)} title="Action Movies" />
+    </div>
   
   );
 }

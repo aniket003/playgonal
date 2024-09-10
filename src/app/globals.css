@@ -20,20 +20,24 @@ body {
 }
 .rights {
   color: #ffffff;
-  font-size: 12px;
+  font-size: 10px;
+  margin-top: 10px;
 }
 .header{
   background-color: black !important;
   height: 50px;
-}
+  position: sticky;
+  width: 100%;
+  z-index: 1;
 
+}
 .footer{
-  
   background-color: black;
   padding: 10px;
   justify-content: space-between;
 }
-
+.main-container{
+}
 .brand-container {
   border-radius: 2px;
   padding: 2px;
@@ -44,10 +48,20 @@ body {
 }
 .brand-footer {
   font-size: 24px;
-  padding: 5px;
-  letter-spacing: 8px ;
+  letter-spacing: 4px ;
 }
 
+.slider-backround{
+ height: 100vh;
+ width: 100%;
+ top: 50px;
+ display: block;
+ position: fixed;
+ background-color: black;
+ overflow: hidden;
+ opacity: 0.1;
+ z-index: 1;
+}
 
 .sidebar {
   margin-top: 50px;
@@ -172,4 +186,18 @@ body {
   height: auto;
   font-size: 15px;
   padding: 2px;
+}
+.resume{
+  width: 100vw !important;
+  height: auto;
+}
+.input{
+  height: 22px;
+  border-radius: 5px;
+  font-size: 14px !important;
+  padding: 2px;
+  width: 40%;
+  background-color: #171717;
+  color: #FFFFFF;
+  box-shadow: none;
 }
