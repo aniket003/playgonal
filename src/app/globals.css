@@ -23,20 +23,21 @@ body {
   font-size: 10px;
   margin-top: 10px;
 }
+.main-container {
+  margin-top: 50px;
+}
 .header{
   background-color: black !important;
   height: 50px;
-  position: sticky;
+  position: fixed;
   width: 100%;
   z-index: 1;
-
+  margin-top: -50px;
 }
 .footer{
   background-color: black;
   padding: 10px;
   justify-content: space-between;
-}
-.main-container{
 }
 .brand-container {
   border-radius: 2px;

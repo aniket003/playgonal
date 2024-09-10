@@ -11,7 +11,6 @@ const Home:React.FC = async () => {
   const res = await fetch(process.env.REACT_APP_ENDPOINT+'data/page1.json');
   const json = await res.json();
   const data = json.page["content-items"].content
-  console.log(data)
   return (
     <div className="main-container">
       <VideoPlayer title="The Guardians Of Galaxy" src="/video/video.mov"/>

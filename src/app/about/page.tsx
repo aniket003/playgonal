@@ -2,11 +2,9 @@ import PDFViewer from '../../components/PDFViewer'
 import React from 'react'
 
 const page:React.FC = async () =>{
-  const pdfUrl = "/pdf/Aniket_fullstack_4yrs.pdf"
   return (
-    <div>
-    <h1>My resume</h1>
-    <p></p>
+    <div className='main-container'>
+    <h1 className='p-2'>ABOUT ME</h1>
     <PDFViewer/>
   </div>
   )
