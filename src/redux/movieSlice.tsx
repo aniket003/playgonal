@@ -29,7 +29,7 @@ const movieSlice = createSlice({
       state.loading = false;
       state.movies.push(action.payload);        
     });
-    builder.addCase(fetchMovies.pending, (state, action) => {
+    builder.addCase(fetchMovies.pending, (state) => {
       state.loading = true;
     });
   },

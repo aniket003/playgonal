@@ -1,11 +1,12 @@
 import React from 'react'
 interface PageProps {
   page: number;  // Define the type of pagenumber as number
-  setPageNumber: any
+  setPageNumber: (page: number) => void;
+  maxPages: number
 }
 const pages:number[]=[1,2,3]
 const Pagination:React.FC<PageProps>=(props) => {
-  const {page,setPageNumber} = props
+  const {page,setPageNumber,maxPages} = props
   console.log(page)
   return (
     <nav aria-label="Page navigation example">
@@ -16,6 +17,7 @@ const Pagination:React.FC<PageProps>=(props) => {
         </a>
         </li>
         { pages?.map((page,index)=>(
+          index < maxPages &&
           <li className="page-item" key={index} onClick={()=>setPageNumber(page)}><a className="page-link">{page}</a></li>
         )) }
         <li className="page-item">

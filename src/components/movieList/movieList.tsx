@@ -53,17 +53,16 @@ const MovieList:React.FC<any> = (props) => {
 
   useEffect(() => {
     window.scrollTo(0,0)
-    setVisibleMovies((prev)=>{return 9})
+    setVisibleMovies(()=>{return 9})
     fetchData()
   }, [pageNumber])
 
-  console.log(filteredMovies,filteredMovies.length)
   return (
     <div className='container'>
       <h1 className='movie-page-heading'>{search}</h1>
       <Listitem movie={filteredMovies.length>0?filteredMovies.slice(0,visibleMovies):movies?.slice(0,visibleMovies)} />
       <div className='d-flex justify-content-center'>
-        <Pagination page={pageNumber} setPageNumber={(i:number)=>setPageNumber(i)}/>
+        <Pagination page={pageNumber} setPageNumber={(i:number)=>setPageNumber(i)} maxPages={filteredMovies.length>0?1:3}/>
       </div>
     </div>
   )

@@ -4,7 +4,12 @@ interface Movie {
   "poster-image": string;
   "name":string
 }
-
+interface Prop{
+  movie:[
+    {"poster-image": string;
+    "name":string}
+  ]
+}
 const Listitem = (prop:any) => {
   const {movie}=prop
   return (
