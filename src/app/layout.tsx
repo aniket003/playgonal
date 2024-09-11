@@ -20,6 +20,7 @@ export default function RootLayout({
       <head>
       <link rel="icon" href="/images/favicon.png" type="image/png" />
       <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css" integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossOrigin="anonymous"/>
+      <script defer src="css/fontawesome-free-5.12.1-web/js/all.js"></script>
       </head>
       <body className={`${titillium.className}`}>
         <Header/>
