@@ -6,7 +6,7 @@ import { store } from '@/redux/store';
 import MovieList from '@/components/movieList/movieList';
 import Head from 'next/head';
 
-const page = () => {
+const Page: React.FC = () => {
     const searchParams = useSearchParams();
     const search: string | null = searchParams.get('query');
     const find: string | null = searchParams.get('search');
@@ -26,4 +26,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

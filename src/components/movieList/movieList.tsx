@@ -21,12 +21,12 @@ const MovieList:React.FC<Props> = (props) => {
   const movies = movieData?.movies?.[0]?.page?.["content-items"].content || [] ;
   const [visibleMovies, setVisibleMovies] = useState<number>(9); 
   const [pageNumber,setPageNumber] = useState<number>(1)
-  const [filteredMovies,setData]=useState<any>([])
+  const [filteredMovies,setData]=useState<Movie[]>([])
   
 
   useEffect(() => {
     console.log("CALLED FIND",find,movies)
-    let filteredMovies:any=[]
+    let filteredMovies:Movie[]=[]
     if(find && movies.length>0){
       filteredMovies = movies.filter((movie: Movie) =>
       movie.name.toLowerCase().includes(find?.toLowerCase()))

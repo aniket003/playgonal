@@ -4,16 +4,24 @@ import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 export const fetchMovies = createAsyncThunk(
   "movie/getAll",
   async (page:number) => {
-    console.log("data")
-
     const response = await fetch(`https://test.create.diagnal.com/data/page${page}.json`);
     const data = await response.json();
-    console.log("data",data.page?.["content-items"]?.content)
     return data;
   }
 );
+interface Movie {
+  "poster-image": string;
+  "name": string;
+}
+interface MovieResponse {
+  page: {
+    ["content-items"]: {
+      content: Movie[];
+    };
+  };
+}
 interface inistate {
-    movies:any,
+    movies:MovieResponse[],
     loading:boolean,
 }
 const initialState:inistate = {
