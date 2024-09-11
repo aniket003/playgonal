@@ -19,14 +19,12 @@ export default function RootLayout({
     <html lang="en">
       <head>
       <link rel="icon" href="/images/favicon.png" type="image/png" />
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.6.0/css/fontawesome.min.css" integrity="sha384-NvKbDTEnL+A8F/AA5Tc5kmMLSJHUO868P+lDtTpJIeQdGYaUIuLr4lVGOEA1OcMy" crossOrigin="anonymous"/>
-      <script defer src="css/fontawesome-free-5.12.1-web/js/all.js"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+      
       </head>
       <body className={`${titillium.className}`}>
         <Header/>
-        {/* <Provider store={store}> */}
           {children}
-        {/* </Provider> */}
         <Footer/>
       </body>
     </html>
