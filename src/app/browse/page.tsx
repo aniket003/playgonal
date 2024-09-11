@@ -9,7 +9,7 @@ import Head from 'next/head';
 const Page: React.FC =  () => {
     const searchParams = useSearchParams();
     const search: string | null = searchParams.get('query');
-    const find: string | null = searchParams.get('search');
+    // const find: string | null = searchParams.get('search');
 
     return (
         <>
@@ -20,7 +20,7 @@ const Page: React.FC =  () => {
        </Head>
         <Provider store={store}>
             <div className='main-container'>
-                <MovieList search={search} find={find} />    
+                <MovieList search={search}  />    
             </div>
         </Provider>
         </>
