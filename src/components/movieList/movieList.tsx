@@ -52,7 +52,7 @@ const MovieList:React.FC<Props> = (props) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  const fetchData=(i)=>{
+  const fetchData=(i:number)=>{
     dispatch(fetchMovies(i))
   }
 
