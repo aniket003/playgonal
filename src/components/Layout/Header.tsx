@@ -14,10 +14,20 @@ const Header:React.FC=()=>{
       return !prev
     })
   }
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(inputRef?.current?.value );
-    router.push(window.location.href+'&search='+inputRef?.current?.value);
+    const searchValue = inputRef?.current?.value;
+    
+    const url = new URL(window.location.href);
+  
+    if (searchValue) {
+      url.searchParams.set('search', searchValue);
+    } else {
+      url.searchParams.delete('search'); 
+    }
+  
+    router.push(url.toString());
   };
  
   return ( 

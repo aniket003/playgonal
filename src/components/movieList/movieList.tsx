@@ -11,7 +11,8 @@ interface Movie {
   "name":string
 }
 
-const MovieList:React.FC<any> = (search,find) => {
+const MovieList:React.FC<any> = (props) => {
+  const {search,find}=props
   const dispatch: AppDispatch = useDispatch();
   const movieData = useSelector((state: RootState) => state.movies);
   const movies = movieData?.movies?.[0]?.page?.["content-items"].content || [] ;
@@ -21,14 +22,19 @@ const MovieList:React.FC<any> = (search,find) => {
   
 
   useEffect(() => {
+    console.log("CALLED FIND",find,movies)
+    let filteredMovies:any=[]
     if(find && movies.length>0){
-      const filteredMovies = movies.filter((movie: Movie) =>
-      movie.name.toLowerCase().includes(find?.toLowerCase())
-    )
-    setData(filteredMovies)
+      filteredMovies = movies.filter((movie: Movie) =>
+      movie.name.toLowerCase().includes(find?.toLowerCase()))
+      setData(filteredMovies)
     }
+    else if(find == null){
+      filteredMovies = []
+      setData(filteredMovies)
+    }
+    
   }, [find])
-  
 
   useEffect(() => {
     fetchData()
@@ -44,17 +50,17 @@ const MovieList:React.FC<any> = (search,find) => {
   const fetchData=()=>{
     dispatch(fetchMovies(pageNumber))
   }
-  
+
   useEffect(() => {
     window.scrollTo(0,0)
     setVisibleMovies((prev)=>{return 9})
     fetchData()
   }, [pageNumber])
 
-  console.log(filteredMovies)
+  console.log(filteredMovies,filteredMovies.length)
   return (
     <div className='container'>
-      <h1 className='movie-page-heading'>{search.search}</h1>
+      <h1 className='movie-page-heading'>{search}</h1>
       <Listitem movie={filteredMovies.length>0?filteredMovies.slice(0,visibleMovies):movies?.slice(0,visibleMovies)} />
       <div className='d-flex justify-content-center'>
         <Pagination page={pageNumber} setPageNumber={(i:number)=>setPageNumber(i)}/>
