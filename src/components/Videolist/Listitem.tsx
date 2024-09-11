@@ -2,13 +2,10 @@ import React from 'react'
 
 interface Movie {
   "poster-image": string;
-  "name":string
+  "name": string;
 }
-interface Prop{
-  movie:[
-    {"poster-image": string;
-    "name":string}
-  ]
+interface Prop {
+  movie: Movie[];  // Define movie as an array of Movie objects
 }
 const Listitem = (prop:Prop) => {
   const {movie}=prop
