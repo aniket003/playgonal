@@ -232,6 +232,7 @@ body {
 .active-page{
   --bs-pagination-bg: white !important;
   --bs-pagination-color: black !important;
+  --bs-pagination-hover-color: black !important
 }
 .page-item{
   background-color: #171717 !important;
