@@ -1,5 +1,5 @@
 "use client"
-import React from 'react'
+import React,{Suspense} from 'react'
 import { useSearchParams } from 'next/navigation';
 import { Provider } from 'react-redux';
 import { store } from '@/redux/store';
@@ -26,4 +26,11 @@ const Page: React.FC = () => {
     )
 }
 
-export default Page
+const BrowsePageWrapper: React.FC = () => (
+    <Suspense fallback={<div>Loading...</div>}>
+      <Page />
+    </Suspense>
+  );
+  
+export default BrowsePageWrapper;
+
