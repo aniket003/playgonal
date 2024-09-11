@@ -10,8 +10,11 @@ interface Movie {
   "poster-image": string;
   "name":string
 }
-
-const MovieList:React.FC<any> = (props) => {
+interface Props {
+  find:string;
+  search:string;
+}
+const MovieList:React.FC<Props> = (props) => {
   const {search,find}=props
   const dispatch: AppDispatch = useDispatch();
   const movieData = useSelector((state: RootState) => state.movies);
