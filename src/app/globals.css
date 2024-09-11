@@ -180,6 +180,11 @@ body {
   padding: 5px;
   border-radius: 5%;
 }
+.movie-title{
+  padding: 5px;
+  font-size: 16px;
+  font-weight: 500;
+}
 .speaker-icon{
   position: absolute;
   text-align: right;
@@ -215,4 +220,19 @@ body {
 }
 .error-page{
   height: calc(100vh - 250px);
+}
+.page-item{
+  background-color: #171717 !important;
+}
+.movie-page-heading{
+  padding-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.back-button{
+  padding: 5px;
+}
+.pagination{
+  --bs-pagination-bg: black !important;
+  --bs-pagination-color: #FFFFFF !important;
 }

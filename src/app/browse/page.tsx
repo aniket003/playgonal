@@ -1,18 +1,28 @@
 "use client"
 import React from 'react'
 import { useSearchParams } from 'next/navigation';
-
+import { Provider } from 'react-redux';
+import { store } from '@/redux/store';
+import MovieList from '@/components/movieList/movieList';
+import Head from 'next/head';
 
 const page = () => {
-    const searchParams = useSearchParams();
-    const filter = searchParams.get('search'); // Access query param 'filter'
-    console.log(filter)
+    const searchParams:any = useSearchParams();
+    const search:any = searchParams.get('query');
+    const find:any = searchParams.get('search')
     return (
-        <div className='main-container'>
-            <div className='page-heading'>
-
+        <>
+        <Head>
+        <title>{search} - playgomal</title>
+        <meta name="description" content="This is my awesome Next.js page" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+       </Head>
+        <Provider store={store}>
+            <div className='main-container'>
+                <MovieList search={search} find={find} />    
             </div>
-        </div>
+        </Provider>
+        </>
     )
 }
 

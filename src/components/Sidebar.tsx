@@ -1,7 +1,26 @@
 'use client'
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import Image from 'next/image'
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
+
+const menuItems:string[] = [
+  'Home',
+  'My List',
+  'Hindi Movies',
+  'Children & Family',
+  'International Movies',
+  'Malayalam',
+  'Thrillers',
+  'Reality Show',
+  'Anime',
+  'Sci-Fi',
+  'Comedies',
+  'Sci-Fi',
+  'Thrillers',
+  'Horror',
+  'Comedies'
+];
+
 
 type SidebarProps = {
   show: boolean;
@@ -10,9 +29,17 @@ type SidebarProps = {
 
 const Sidebar:React.FC<SidebarProps>=({show,change})=>{
   const router = useRouter()
+  const [isClient, setIsClient] = useState(false);
 
-  const navigate = (url:string) => {
-    router.push('url');
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  const navigate = (url: string) => {
+    if (isClient) {
+      change()
+      router.push(url);
+    }
   };
   return (
     <div>
@@ -27,22 +54,9 @@ const Sidebar:React.FC<SidebarProps>=({show,change})=>{
         <li className='menu-item '>Sign out</li>
        </ol>
        <ol className='list m-0 p-0 mt-2'>
-        <li className='menu-item actived'>Home</li>
-        <li className='menu-item '>My List</li>
-        <li className='menu-item '>Hindi Movies</li>
-        <li className='menu-item '>Children & Family</li>
-        <li className='menu-item '>International Movies</li>
-        <li className='menu-item '>Malayalam</li>
-        <li className='menu-item '>Thrillers</li>
-        <li className='menu-item '>Reality Show</li>
-        <li className='menu-item '>Anime</li>
-        <li className='menu-item '>Sci-Fi</li>
-        <li className='menu-item '>Comedies</li>
-        <li className='menu-item '>Sci-Fi</li>
-        <li className='menu-item '>Thrillers</li>
-        <li className='menu-item '>Horror</li>
-        <li className='menu-item '>Comedies</li>
-
+        {menuItems.map((item:string,i:number)=>(
+          <li className='menu-item' key={i} onClick={()=>navigate('browse/?query='+item)}>{item}</li>
+        ))}
        </ol>
       </div>
 
