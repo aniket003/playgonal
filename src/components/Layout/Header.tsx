@@ -20,13 +20,15 @@ const Header:React.FC=()=>{
     const searchValue = inputRef?.current?.value;
     
     const url = new URL(window.location.href);
-  
+    if (window.location.pathname === '/') {
+      url.pathname = '/browse';
+    }
     if (searchValue) {
-      url.searchParams.set('search', searchValue);
+      url.searchParams.set('search', searchValue)
     } else {
       url.searchParams.delete('search'); 
     }
-  
+    
     router.push(url.toString());
   };
  
@@ -38,11 +40,13 @@ const Header:React.FC=()=>{
             <a onClick={changeToggle} className="toggle-btn a-deco">☰</a>
             <a className='brand-container a-deco' href="/">PLAYGONAL</a>
           </td>
+         
           <td className='header-item'>
             <form onSubmit={handleSubmit}>
             <input className='input' type='text' ref={inputRef}  placeholder='Search...' />
             </form>
           </td>
+          
       </tr>
     </div>
     <Sidebar show={active} change={()=>changeToggle()}/>

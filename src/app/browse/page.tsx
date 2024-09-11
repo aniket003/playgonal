@@ -6,10 +6,11 @@ import { store } from '@/redux/store';
 import MovieList from '@/components/movieList/movieList';
 import Head from 'next/head';
 
-const Page: React.FC = () => {
+const Page: React.FC =  () => {
     const searchParams = useSearchParams();
     const search: string | null = searchParams.get('query');
     const find: string | null = searchParams.get('search');
+
     return (
         <>
         <Head>

@@ -36,7 +36,6 @@ const MovieList:React.FC<Props> = (props) => {
       filteredMovies = []
       setData(filteredMovies)
     }
-    
   }, [find])
 
   useEffect(() => {
