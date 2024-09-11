@@ -11,8 +11,8 @@ interface Movie {
   "name":string
 }
 interface Props {
-  find:string;
-  search:string;
+  find:string | null;
+  search:string | null ;
 }
 const MovieList:React.FC<Props> = (props) => {
   const {search,find}=props

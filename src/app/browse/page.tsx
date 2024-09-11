@@ -7,9 +7,9 @@ import MovieList from '@/components/movieList/movieList';
 import Head from 'next/head';
 
 const page = () => {
-    const searchParams:any = useSearchParams();
-    const search:any = searchParams.get('query');
-    const find:any = searchParams.get('search')
+    const searchParams = useSearchParams();
+    const search: string | null = searchParams.get('query');
+    const find: string | null = searchParams.get('search');
     return (
         <>
         <Head>

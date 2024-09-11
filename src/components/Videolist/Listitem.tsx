@@ -10,7 +10,7 @@ interface Prop{
     "name":string}
   ]
 }
-const Listitem = (prop:any) => {
+const Listitem = (prop:Prop) => {
   const {movie}=prop
   return (
     <div className='d-flex row'>
