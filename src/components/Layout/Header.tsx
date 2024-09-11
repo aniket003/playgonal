@@ -40,7 +40,7 @@ const Header:React.FC=()=>{
             <a onClick={changeToggle} className="toggle-btn a-deco">☰</a>
             <a className='brand-container a-deco' href="/">PLAYGONAL</a>
           </td>
-         
+          
           <td className='header-item'>
             <form onSubmit={handleSubmit}>
             <input className='input' type='text' ref={inputRef}  placeholder='Search...' />
