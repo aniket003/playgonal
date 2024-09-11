@@ -14,12 +14,6 @@ interface VideoListProps {
 
 const VideoList:React.FC<VideoListProps> = ({data,title}) => {
   const router = useRouter()
-  const [isClient, setIsClient] = useState(false);
-
-  useEffect(() => {
-    setIsClient(true);
-  }, []);
-
   const navigate = (url: string) => {
       router.push('/browse?query='+url);
   }

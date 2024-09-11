@@ -25,7 +25,10 @@ const MovieList:React.FC<Props> = (props) => {
   
 
   useEffect(() => {
-    console.log("CALLED FIND",find,movies)
+    if(find && !search){
+      fetchData()
+      setVisibleMovies(9)
+    }
     let filteredMovies:Movie[]=[]
     if(find && movies.length>0){
       filteredMovies = movies.filter((movie: Movie) =>
