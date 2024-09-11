@@ -229,9 +229,14 @@ body {
 .error-page{
   height: calc(100vh - 250px);
 }
+.active-page{
+  --bs-pagination-bg: white !important;
+  --bs-pagination-color: black !important;
+}
 .page-item{
   background-color: #171717 !important;
 }
+
 .movie-page-heading{
   padding-top: 10px;
   margin-left: -6px !important;

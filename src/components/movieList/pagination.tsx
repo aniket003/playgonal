@@ -15,9 +15,9 @@ const Pagination:React.FC<PageProps>=(props) => {
             <span aria-hidden="true">&laquo;</span>
         </a>
         </li>
-        { pages?.map((page,index)=>(
+        { pages?.map((p,index)=>(
           index < maxPages &&
-          <li className="page-item" key={index} onClick={()=>setPageNumber(page)}><a className="page-link">{page}</a></li>
+          <li className={`page-item ${page==p&&'active-page'}`} key={index} onClick={()=>setPageNumber(p)}><a className="page-link">{p}</a></li>
         )) }
         <li className="page-item">
         <a className="page-link" aria-label="Next" onClick={()=>setPageNumber(page<3?page+1:3)}>
