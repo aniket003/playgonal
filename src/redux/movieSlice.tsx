@@ -35,7 +35,7 @@ const movieSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(fetchMovies.fulfilled, (state, action) => {
       state.loading = false;
-      state.movies.push(action.payload);        
+      state.movies[0] = action.payload ;        
     });
     builder.addCase(fetchMovies.pending, (state) => {
       state.loading = true;

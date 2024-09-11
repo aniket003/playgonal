@@ -4,7 +4,8 @@ import { useRouter } from 'next/navigation';
 import { API_ENDPOINT } from '../constant';
 
 interface Movie {
-    "poster-image": string;
+  "poster-image": string;
+  "name":string  
 }
 interface VideoListProps {
     data: Movie[];
@@ -30,7 +31,11 @@ const VideoList:React.FC<VideoListProps> = ({data,title}) => {
               <div className="image-container">
                 <img 
                   className="responsive-image" 
-                  src={API_ENDPOINT+movie["poster-image"]} />
+                  src={API_ENDPOINT+movie["poster-image"]} 
+                  alt={movie?.name}
+                  onError={({ currentTarget }) => {
+                  currentTarget.onerror = null; 
+                  currentTarget.src=API_ENDPOINT+"placeholder_for_missing_posters.png";}}/>
               </div>
             </div>
           ))}

@@ -1,4 +1,5 @@
 import React from 'react'
+import { API_ENDPOINT } from '../constant';
 
 interface Movie {
   "poster-image": string;
@@ -14,7 +15,13 @@ const Listitem = (prop:Prop) => {
       {movie?.map((movie:Movie, index:number) => (
         <div className='col-4 p-0' key={index}>
           <div className="image-container">
-          <img className="responsive-image" src={"https://test.create.diagnal.com/images/"+movie["poster-image"]} />
+          <img className="responsive-image"
+               src={API_ENDPOINT+movie["poster-image"]} 
+               alt={movie?.name}
+               onError={({ currentTarget }) => {
+                currentTarget.onerror = null; 
+                currentTarget.src=API_ENDPOINT+"placeholder_for_missing_posters.png";
+              }}/>
           </div>
           <p className='movie-title'>{movie.name}</p>
         </div>

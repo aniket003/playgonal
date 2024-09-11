@@ -8,7 +8,7 @@ interface VideoPlayerProps {
   
 const VideoPlayer: React.FC<VideoPlayerProps> = ({ src, title }) => {
     const videoRef = useRef<HTMLVideoElement | null>(null); // Ref to the video element
-    const [isMuted, setIsMuted] = useState<boolean>(true); // State to manage mute status
+    const [isMuted, setIsMuted] = useState<boolean>(false); // State to manage mute status
   
     const handleClick = () => {
         if (videoRef.current) {

@@ -14,13 +14,13 @@ const Header:React.FC=()=>{
   return ( 
     <> 
     <div className="header">
-      <tr className='d-flex flex-row justify-content-between'>
-          <td>
+      <div className='d-flex flex-row justify-content-between'>
+          <div>
             <a onClick={changeToggle} className="toggle-btn a-deco">☰</a>
             <a className='brand-container a-deco' href="/">PLAYGONAL</a>
-          </td>
+          </div>
 
-      </tr>
+      </div>
     </div>
     <Sidebar show={active} change={()=>changeToggle()}/>
     </>

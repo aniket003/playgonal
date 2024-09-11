@@ -7,7 +7,6 @@ interface PageProps {
 const pages:number[]=[1,2,3]
 const Pagination:React.FC<PageProps>=(props) => {
   const {page,setPageNumber,maxPages} = props
-  console.log(page)
   return (
     <nav aria-label="Page navigation example">
     <ul className="pagination">

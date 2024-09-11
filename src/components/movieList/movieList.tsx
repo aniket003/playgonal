@@ -24,10 +24,9 @@ const MovieList:React.FC<Props> = (props) => {
   const [filteredMovies,setData]=useState<Movie[]>([])
   const inputRef = useRef<HTMLInputElement>(null);
 
-
   useEffect(() => {
     if(find && !search){
-      fetchData()
+      fetchData(pageNumber)
       setVisibleMovies(9)
     }
     let filteredMovies:Movie[]=[]
@@ -43,7 +42,7 @@ const MovieList:React.FC<Props> = (props) => {
   }, [find])
 
   useEffect(() => {
-    fetchData()
+    fetchData(pageNumber)
     const handleScroll = () => {
       if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 600) {
         setVisibleMovies((prevVisibleMovies) => prevVisibleMovies + 3); 
@@ -53,15 +52,16 @@ const MovieList:React.FC<Props> = (props) => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
   
-  const fetchData=()=>{
-    dispatch(fetchMovies(pageNumber))
+  const fetchData=(i)=>{
+    dispatch(fetchMovies(i))
   }
 
-  useEffect(() => {
+  const changePage = (i:number) =>{
     window.scrollTo(0,0)
+    setPageNumber(()=>{return i})
     setVisibleMovies(()=>{return 9})
-    fetchData()
-  }, [pageNumber])
+    fetchData(i)
+  }
 
   const handleSubmit = (e:React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault()
@@ -79,7 +79,7 @@ const MovieList:React.FC<Props> = (props) => {
   };
   return (
     <div className='container'>
-
+      
       <h1 className='movie-page-heading'>{search}</h1>
       <div className='d-flex flex-row header-item'>
             <input className='input' type='text' ref={inputRef}  placeholder='Search...' />
@@ -89,7 +89,7 @@ const MovieList:React.FC<Props> = (props) => {
         </div>
       <Listitem movie={filteredMovies.length>0?filteredMovies.slice(0,visibleMovies):movies?.slice(0,visibleMovies)} />
       <div className='d-flex justify-content-center'>
-        <Pagination page={pageNumber} setPageNumber={(i:number)=>setPageNumber(i)} maxPages={filteredMovies.length>0?1:3}/>
+        <Pagination page={pageNumber} setPageNumber={(i:number)=>changePage(i)} maxPages={filteredMovies.length>0?1:3}/>
       </div>
     </div>
   )

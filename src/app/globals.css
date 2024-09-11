@@ -215,7 +215,7 @@ body {
   margin-left: 4px;
 }
 .header-item {
-  margin: 0px 0px 5px 0px !important;
+  margin: 0px 0px 5px -6px !important;
 }
 .header-link{
   color: white;
@@ -234,11 +234,13 @@ body {
 }
 .movie-page-heading{
   padding-top: 10px;
+  margin-left: -6px !important;
   display: flex;
   align-items: center;
 }
 .back-button{
   padding: 5px;
+  
 }
 .pagination{
   --bs-pagination-bg: black !important;
