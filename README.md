@@ -1,3 +1,8 @@
+Deployed Url
+https://playgonal.vercel.app
+https://playgonal.vercel.app/about
+https://playgonal.vercel.app/browse?query=Comedy%20Movies
+
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
