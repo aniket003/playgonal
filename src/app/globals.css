@@ -199,8 +199,8 @@ body {
 }
 .input {
   border-radius: 5px;
-  font-size: 14px !important;
-  padding: 4px .5em;
+  font-size: 12px !important;
+  padding: 3px .4em;
   background-color: #171717;
   color: #FFFFFF;
   border: 0.5px solid white;
@@ -208,14 +208,16 @@ body {
 .button{
   border-radius: 5px;
   font-size: 14px !important;
-  padding: 4px .5em;
-  background-color: #171717;
   color: #FFFFFF;
-  border: 0.5px solid white;
   margin-left: 4px;
+  background: none;
+  border: none;
 }
 .header-item {
-  margin: 0px 0px 5px -6px !important;
+  align-items: center;
+}
+.search-image{
+  height: 15px;
 }
 .header-link{
   color: white;
@@ -237,18 +239,28 @@ body {
 .page-item{
   background-color: #171717 !important;
 }
-
+.back-image{
+  height: 18px;
+  margin-right: 20px;
+}
 .movie-page-heading{
-  padding-top: 10px;
   margin-left: -6px !important;
+  font-size: 18px;
   display: flex;
+  justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
+  padding: 0px 8px 0px 0px
+
 }
 .back-button{
   padding: 5px;
-  
 }
 .pagination{
   --bs-pagination-bg: black !important;
   --bs-pagination-color: #FFFFFF !important;
+}
+.movie-list{
+  padding-top: 35px;
 }

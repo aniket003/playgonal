@@ -1,5 +1,6 @@
 import React from 'react'
 import { API_ENDPOINT } from '../constant';
+import Image from 'next/image';
 
 interface Movie {
   "poster-image": string;
@@ -11,12 +12,14 @@ interface Prop {
 const Listitem = (prop:Prop) => {
   const {movie}=prop
   return (
-    <div className='d-flex row'>
+    <div className='d-flex row movie-list'>
       {movie?.map((movie:Movie, index:number) => (
         <div className='col-4 p-0' key={index}>
           <div className="image-container">
-          <img className="responsive-image"
+          <Image className="responsive-image"
                src={API_ENDPOINT+movie["poster-image"]} 
+               width={100}
+               height={100}
                alt={movie?.name}
                onError={({ currentTarget }) => {
                 currentTarget.onerror = null; 

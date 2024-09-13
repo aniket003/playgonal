@@ -5,7 +5,8 @@ import { useSelector,useDispatch } from 'react-redux';
 import { AppDispatch, RootState } from '@/redux/store'; 
 import Pagination from './pagination';
 import Listitem from '../Videolist/Listitem';
-
+import { API_ENDPOINT } from '../constant';
+import useNavigate from '../Hooks/useNavigate';
 interface Movie {
   "poster-image": string;
   "name":string
@@ -15,6 +16,7 @@ interface Props {
 }
 const MovieList:React.FC<Props> = (props) => {
   const {search}=props
+  const { navigate } = useNavigate();
   const dispatch: AppDispatch = useDispatch();
   const movieData = useSelector((state: RootState) => state.movies);
   const movies = movieData?.movies?.[0]?.page?.["content-items"].content || [] ;
@@ -23,7 +25,7 @@ const MovieList:React.FC<Props> = (props) => {
   const [pageNumber,setPageNumber] = useState<number>(1)
   const [filteredMovies,setData]=useState<Movie[]>([])
   const inputRef = useRef<HTMLInputElement>(null);
-
+  const [inputshow,inputActive]=useState<boolean>(false)
   useEffect(() => {
     if(find && !search){
       fetchData(pageNumber)
@@ -64,6 +66,9 @@ const MovieList:React.FC<Props> = (props) => {
   }
 
   const handleSubmit = (e:React.MouseEvent<HTMLButtonElement>) => {
+    if(!inputshow){
+      inputActive(true)
+    }
     e.preventDefault()
     if(inputRef.current?.value){
       setFind(inputRef.current?.value)
@@ -72,21 +77,19 @@ const MovieList:React.FC<Props> = (props) => {
       setFind(null)
     }
   };
-  const handleSubmitCancel = (e:React.MouseEvent<HTMLButtonElement>) => {
-    e.preventDefault()
-    setFind(null)
-    if (inputRef.current) { inputRef.current.value = '' }
-  };
+
   return (
     <div className='container'>
-      
-      <h1 className='movie-page-heading'>{search}</h1>
-      <div className='d-flex flex-row header-item'>
-            <input className='input' type='text' ref={inputRef}  placeholder='Search...' />
-            <button className='btn btn-dark button' onClick={handleSubmit}> Search</button>
-            <button className='btn btn-dark button' onClick={handleSubmitCancel}> Cancel</button>
-
+      <div className='movie-page-heading mt-1' >
+        <div>
+          <img src={API_ENDPOINT+"Back.png"} onClick={()=>{navigate("/")}} className='back-image'/>
+          {search}
         </div>
+        <div className='header-item'>
+          {inputshow && <input className='input' type='text' ref={inputRef} onClick={()=>{console}}  placeholder='Search...' />}
+          <button className=' button' onClick={handleSubmit}> <img src={API_ENDPOINT+"search.png"} className='search-image' /></button>
+        </div>
+      </div>
       <Listitem movie={filteredMovies.length>0?filteredMovies.slice(0,visibleMovies):movies?.slice(0,visibleMovies)} />
       <div className='d-flex justify-content-center'>
         <Pagination page={pageNumber} setPageNumber={(i:number)=>changePage(i)} maxPages={filteredMovies.length>0?1:3}/>
@@ -95,4 +98,4 @@ const MovieList:React.FC<Props> = (props) => {
   )
 }
 
-export default MovieList
+export default React.memo(MovieList)
