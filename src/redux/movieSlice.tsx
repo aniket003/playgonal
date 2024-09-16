@@ -13,32 +13,27 @@ interface Movie {
   "poster-image": string;
   "name": string;
 }
-interface MovieResponse {
-  page: {
-    ["content-items"]: {
-      content: Movie[];
-    };
-  };
-}
 interface inistate {
-    movies:MovieResponse[],
+    movies:Movie[],
     loading:boolean,
 }
+
 const initialState:inistate = {
   movies: [],
   loading: false,
 };
+
 const movieSlice = createSlice({
   name: "movies",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
-    builder.addCase(fetchMovies.fulfilled, (state, action) => {
-      state.loading = false;
-      state.movies[0] = action.payload ;        
-    });
     builder.addCase(fetchMovies.pending, (state) => {
       state.loading = true;
+    });
+    builder.addCase(fetchMovies.fulfilled, (state, action) => {
+      state.loading = false;
+      state.movies = [...state.movies,...action.payload?.page?.["content-items"]?.content];
     });
   },
 });

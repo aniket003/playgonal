@@ -11,7 +11,7 @@
 }
 
 ::-webkit-scrollbar {
-  width: 1px; /* Set the width of the scrollbar */
+  width: 0px; /* Set the width of the scrollbar */
 }
 
 body {
@@ -244,14 +244,16 @@ body {
   margin-right: 20px;
 }
 .movie-page-heading{
-  margin-left: -6px !important;
+  margin-left: -8px !important;
   font-size: 18px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
   width: 100%;
-  padding: 0px 8px 0px 0px
+  padding: 5px;
+  background: #171717;
+  z-index: 1;
 
 }
 .back-button{
@@ -263,4 +265,14 @@ body {
 }
 .movie-list{
   padding-top: 35px;
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }

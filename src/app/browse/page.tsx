@@ -19,7 +19,7 @@ const Page: React.FC =  () => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
        </Head>
         <Provider store={store}>
-            <div className='main-container'>
+            <div className='main-container hide-scrollbar'>
                 <MovieList search={search}  />    
             </div>
         </Provider>
