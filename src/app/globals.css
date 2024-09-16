@@ -114,13 +114,13 @@ body {
   width: 300%;
   height: 300%;
   border-radius: 50%;
-  transform: translate(-50%, -50%) scale(0);
+  transform: translate(-10%, -10%) scale(0);
   transition: all 0.5s ease;
   z-index: -1;
 }
 
 .menu-item:hover::before {
-  transform: translate(-50%, -50%) scale(1);
+  transform: translate(-10%, -10%) scale(1);
   transition: all 2s ease;
 
 }

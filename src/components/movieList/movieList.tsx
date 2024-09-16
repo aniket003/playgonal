@@ -60,7 +60,7 @@ const MovieList:React.FC<Props> = (props) => {
   
   useEffect(() => {
     const handleScroll = () => {
-      if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 500 
+      if(window.innerHeight + window.scrollY >= document.body.offsetHeight - 600 
         && !loading 
         && pageFetched.current <= maxPages) {
         fetchData( pageFetched.current)
