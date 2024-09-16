@@ -1,6 +1,5 @@
 import React from 'react'
 import { API_ENDPOINT } from '../constant';
-import Image from 'next/image';
 import ImageWithFallback from '../Image';
 
 interface Movie {
@@ -19,6 +18,7 @@ const Listitem = (prop:Prop) => {
         <div className='col-4 p-0' key={index}>
           <div className="image-container">
           <ImageWithFallback 
+              className="responsive-image"
               src={API_ENDPOINT+movie["poster-image"]} 
               width={100}
               height={100}

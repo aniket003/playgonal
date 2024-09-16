@@ -1,7 +1,7 @@
 'use client'
 import React,{useState,useEffect} from 'react'
-import Image from 'next/image'
 import { useRouter } from 'next/navigation';
+import ImageWithFallback from './Image';
 
 const menuItems:string[] = [
   'Home',
@@ -47,7 +47,7 @@ const Sidebar:React.FC<SidebarProps>=({show,change})=>{
       <div className={`sidebar col-4 ${show&&'open'}`}>
        <ol className=' list m-0 p-0'>
         <li className='menu-item d-flex flex-row'>
-          <Image src="/images/user.png" alt="My Image" width={30} height={30} />
+          <ImageWithFallback src="/images/user.png" alt="My Image" width={30} height={30} className=''/>
           <p className='mb-0 menu-item'>Aniket</p>
         </li>
         <li className='menu-item' onClick={()=>navigate('/about')}>About</li>

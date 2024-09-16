@@ -178,7 +178,7 @@ body {
   height: 100%;
   object-fit: cover; 
   padding: 5px;
-  border-radius: 5%;
+  border-radius: 2%;
 }
 .movie-title{
   padding: 5px;

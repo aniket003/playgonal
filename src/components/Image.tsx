@@ -1,3 +1,4 @@
+"use client"
 // components/ImageWithFallback.tsx
 import React, { useState } from 'react';
 import Image from 'next/image';
@@ -7,6 +8,7 @@ interface ImageWithFallbackProps {
   alt: string;
   width: number;
   height: number;
+  className: string
 }
 
 const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
@@ -14,6 +16,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
   alt,
   width,
   height,
+  className
 }) => {
   const [imgSrc, setImgSrc] = useState<string>(src);
   const [hasError, setHasError] = useState<boolean>(false);
@@ -27,7 +30,7 @@ const ImageWithFallback: React.FC<ImageWithFallbackProps> = ({
 
   return (
     <Image
-      className="responsive-image"
+      className={className}
       src={imgSrc}
       alt={alt}
       width={width}
