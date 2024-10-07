@@ -10,7 +10,7 @@ const Page: React.FC =  () => {
     const searchParams = useSearchParams();
     const search: string | null = searchParams.get('query');
     // const find: string | null = searchParams.get('search');
-
+    // sadcs
     return (
         <>
         <Head>
